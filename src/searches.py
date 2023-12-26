@@ -57,7 +57,10 @@ class Searches:
         search_terms = self.getGoogleTrends(numberOfSearches)
         for word in search_terms:
             i += 1
-            logging.info("[BING] " + f"{i}/{numberOfSearches}")
+            if i % 4 == 0:
+                logging.info("[BING] Sleeping 15 minutes...")
+                time.sleep(15 * 60)
+            logging.info("[BING] " + f"{i}/{numberOfSearches} with phrase '{word}'")
             points = self.bingSearch(word)
             if points <= pointsCounter:
                 relatedTerms = self.getRelatedTerms(word)[:2]
