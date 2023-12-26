@@ -222,13 +222,13 @@ class Utils:
             # Level 1 or 2 US
             searchPoints = 5
         remainingDesktop = int((targetDesktop - progressDesktop) / searchPoints)
-        remainingDesktop += 3 if remainingDesktop == targetDesktop else 0
+        remainingDesktop += 3 if progressDesktop == 0 else 0
         remainingMobile = 0
         if dashboard["userStatus"]["levelInfo"]["activeLevel"] != "Level1":
             progressMobile = counters["mobileSearch"][0]["pointProgress"]
             targetMobile = counters["mobileSearch"][0]["pointProgressMax"]
             remainingMobile = int((targetMobile - progressMobile) / searchPoints) + 3
-            remainingMobile += 3 if remainingMobile == targetMobile else 0
+            remainingMobile += 3 if progressMobile == 0 else 0
         return remainingDesktop, remainingMobile
 
     def formatNumber(self, number, num_decimals=2):
