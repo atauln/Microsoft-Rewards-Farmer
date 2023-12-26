@@ -200,7 +200,7 @@ class Utils:
 
     def getRemainingSearches(self):
         dashboard = self.getDashboardData()
-        searchPoints = 1
+        searchPoints = 5
         counters = dashboard["userStatus"]["counters"]
 
         if "pcSearch" not in counters:
