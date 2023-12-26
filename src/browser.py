@@ -79,7 +79,7 @@ class Browser:
             seleniumwire_options=seleniumwireOptions,
             user_data_dir=self.userDataDir.as_posix(),
         )
-        driver.set_page_load_timeout(30)
+        driver.set_page_load_timeout(90)
 
         seleniumLogger = logging.getLogger("seleniumwire")
         seleniumLogger.setLevel(logging.ERROR)
