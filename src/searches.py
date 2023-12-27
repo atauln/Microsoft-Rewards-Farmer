@@ -3,6 +3,7 @@ import logging
 import random
 import time
 from datetime import date, timedelta
+from math import ceil
 
 import requests
 from selenium.common.exceptions import TimeoutException
@@ -59,6 +60,8 @@ class Searches:
             i += 1
             if i % 4 == 0:
                 logging.info("[BING] Sleeping 15 minutes...")
+                timeRemaining = ceil((numberOfSearches - i) / 4) * 15
+                logging.info("[BING] ETA Remaining: {timeRemaining} minutes")
                 time.sleep(15 * 60)
             logging.info("[BING] " + f"{i}/{numberOfSearches} with phrase '{word}'")
             points = self.bingSearch(word)
